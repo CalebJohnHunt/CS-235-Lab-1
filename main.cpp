@@ -1,46 +1,48 @@
 #include <iostream>
-#include <fstream>
 
 #include "TodoList.h"
 
 using namespace std;
 
-class bar
-{
-public:
-    bar(){};
-    void print()
-    {
-        cout << "hey" << endl;
-    }
-};
-
 int main(int argc, char* argv[])
 {
-    TodoList foo;
+    TodoList todoList;
 
     if (argc == 1)
     {
-        cout << "Needs more variables!" << endl;
+        cout << "Please add a parameter" << endl;
         return 0;
     }
-    string arg = string(argv[1]);
-    if (arg == "add")
+
+    string userCommand = string(argv[1]);
+    if (userCommand == "add" && argc == 3)
     {
-        foo.add(string(argv[2]), string(argv[3]));
+        todoList.add(string(argv[2]), string(argv[3]));
     }
-    else if (arg == "remove")
+    else if (userCommand == "remove" && argc == 2)
     {
-        foo.remove(string(argv[2]));
+        if (!todoList.remove(string(argv[2])))
+        {
+
+        }
     }
-    else if (arg == "printList")
+    else if (userCommand == "printList" && argc == 1)
     {
-        foo.printTodoList();
+        todoList.printTodoList();
     }
-    else if (arg == "printDay")
+    else if (userCommand == "printDay" && argc == 2)
     {
-        foo.printDaysTasks(string(argv[2]));
+        todoList.printDaysTasks(string(argv[2]));
     }
+    else
+    {
+        cout << "Parameter not recognized." << endl\
+             << "add {duedate} {task} : Adds a task with due date" << endl\
+             << "remove {task}        : Removes task" << endl\
+             << "printList            : Prints all tasks" << endl\
+             << "printDay {date}      : Prints all tasks on date" << endl;
+    }
+    
 
     return 0;
 }

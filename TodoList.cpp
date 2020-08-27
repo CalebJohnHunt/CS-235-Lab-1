@@ -8,7 +8,7 @@ TodoList::TodoList()
     : TodoListInterface()
 {
     fileName = "TODOList.txt";
-    ifstream file(fileName);
+    file.open(fileName);
 
     while (getline(file, currentLine))
     {
@@ -22,7 +22,7 @@ TodoList::TodoList()
 
 TodoList::~TodoList()
 {
-    ofstream file(fileName);
+    file.open(fileName, ios::out);
     for (size_t i = 0; i < dates.size(); i++)
     {
         file << dates.at(i) << endl;
@@ -45,18 +45,17 @@ int TodoList::remove(string _task)
         if (_task == tasks.at(i))
         {
             tasks.erase(tasks.begin() + i);
-            dates.erase(tasks.begin() + i);
-            return i;
+            dates.erase(dates.begin() + i);
+            return 1;
         }
     }
-    return -1;
+    return 0;
 }
 
 void TodoList::printTodoList()
 {
-    for (size_t i = 0; i < dates.size(); i++)
+    for (size_t i = 0; i < tasks.size(); i++)
     {
-        cout << dates.at(i) << endl;
         cout << tasks.at(i) << endl;
     }
 }

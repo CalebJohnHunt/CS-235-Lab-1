@@ -1,2 +1,2 @@
 all:
-	g++ main.cpp TodoList.cpp -o MyProgram
+	g++ main.cpp TodoList.cpp -o TODO

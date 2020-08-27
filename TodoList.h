@@ -39,7 +39,7 @@ public:
 private:
     string currentLine;
     string fileName;
-    ifstream file;
+    fstream file;
     vector<string> dates;
     vector<string> tasks;
 };
