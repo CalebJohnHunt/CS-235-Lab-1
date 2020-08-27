@@ -1,4 +1,6 @@
 Sunday
-Task1
+task1
 Monday
-Task2
+task2
+Sunday
+task3

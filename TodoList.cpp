@@ -1,5 +1,3 @@
-#pragma once
-
 #include "TodoList.h"
 #include <fstream>
 #include <vector>
@@ -51,14 +49,15 @@ int TodoList::remove(string _task)
             return i;
         }
     }
+    return -1;
 }
 
 void TodoList::printTodoList()
 {
     for (size_t i = 0; i < dates.size(); i++)
     {
-        cout << dates.at(0) << endl;
-        cout << tasks.at(0) << endl;
+        cout << dates.at(i) << endl;
+        cout << tasks.at(i) << endl;
     }
 }
 
