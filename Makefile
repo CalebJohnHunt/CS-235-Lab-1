@@ -1,2 +1,4 @@
 all:
-	g++ main.cpp TodoList.cpp -o TODO
+	g++ main.cpp -o TODO
+clean:
+	rm -f TODO
